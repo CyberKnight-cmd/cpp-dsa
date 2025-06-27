@@ -1,0 +1,10 @@
+# ----------------------
+# C++ build artifacts
+# ----------------------
+*.exe
+*.o
+*.out
+*.obj
+*.gch
+input.txt
+output.txt
