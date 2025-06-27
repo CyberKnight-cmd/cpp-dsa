@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-
+// Brute force solution
 // O(n/2) : Time Complexity
 // O(n) : Space Complexity
 void rearrange(int arr[], int n){
