@@ -1,7 +1,3 @@
-Here is your **clean, professional README.md** for the **CPP repository**, tailored to your current structure and learning purpose:
-
----
-
 # 💻 C++ DSA and Competitive Programming
 
 Welcome to my **C++ Data Structures and Algorithms repository**, containing structured practice codes, course notes, and competitive programming problems.
