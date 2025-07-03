@@ -57,9 +57,45 @@ void quickSort(int arr[], int low, int high){
     }
 }
 
-int longestConsecutiveSequenceBrute(int arr[], int n){
+int longestConsecutiveSequenceBetter(int arr[], int n){
     quickSort(arr, 0, n-1);
+    int count = 1, maxCount = 0;
+    for(int i = 1; i < n; i++){
+        if(arr[i] == arr[i-1] + 1){
+            count++;
+            maxCount = max(count, maxCount);
+        }
+        else if(arr[i]!=arr[i-1])
+            count = 0;
+    }
+    return maxCount;
 }
+
+
+// O(3n)
+// O(n)
+int longestConsecutiveSequenceOptimal(int arr[], int n){
+    if(n==0) return 0;
+    unordered_set<int> array;
+    for (int i = 0; i < n;i++)
+        array.insert(arr[i]);
+    int longest = 1;
+    for (auto &&i : array)
+    {
+        if(array.find(i-1)==array.end()){
+            int count = 1;
+            int x = i;
+            while (array.find(x+1)!=array.end())
+            {
+                x++;
+                count++;
+            }
+            longest = max(longest, count);
+        }
+    }
+    return longest;    
+}
+
 int main(){
     int n;
     cin >> n;
@@ -70,6 +106,8 @@ int main(){
     // vector<int> leaders = longestConsecutiveSequence(arr, n);
     // for (auto &&i : leaders)
         // cout << i << " ";   
-    cout << longestConsecutiveSequenceBrute(arr,n);
+    // cout << longestConsecutiveSequenceBrute(arr,n);
+    // cout << longestConsecutiveSequenceBetter(arr, n);
+    cout << longestConsecutiveSequenceOptimal(arr, n);
     return 0;
 }
